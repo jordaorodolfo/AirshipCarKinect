@@ -1,0 +1,40 @@
+%141125/150407: bm65
+
+preDRONI modelling using xls input and battery discharging model
+
+evolution of bm64 model with:
+-axi motors with 4s lipo and props
+-t-motors and props 17x12 using 29.6V 8s2p battery (bm645)
+ (still alternatives to be tested in forbm65x script)
+-idem for motors/props position...
+
+-mass and inertias defined in xls
+-ground or configuration parameters defined in xls
+
+-added one state in fbm for battery model:
+->one extra state in act X(30)=It=int(sum(Imi)*dt) (trim:It0=XU0(32))
+->one 'other output' is current battery voltage: Vm=y(32)=f0(62)
+->initial State of Charge may be defined to check effect on model
+
+files:
+-bm65_DRONI.xls         excel datasheet with mass budget and locations
+-db_droni.m             func. to load basic model data from xls
+-forbm65.m              func. to complete model definition with motorization
+-fbm65.m                func. with dynamic model
+-diffbm65/diffbm652     func. for trim and linearization
+-forbm651.m             initial script w/ trimming or test loading
+-sbm65_OL.mdl           basic simulink OL model
+-sfunxy0.m              aux. function for simulink
+-bm650.txt              this file
+
+
+remaining issues:
+-trim functions are perfectible because of redundant inputs
+which turns minimization into a complex problem; 
+the power minimization is a tentative example
+allowing a more continuous trim from HF to AF and should help in control
+task adaption
+
+150321: few minor corrections
+150321: forbm65 as function: allows to define a new drive setup
+150407: added resistance of power cables

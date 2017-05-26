@@ -1,0 +1,1056 @@
+Model {
+  Name			  "sdslipxy"
+  Version		  5.0
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ExecutionOrder	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Thu Sep 24 15:18:52 2009"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Admin"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Thu Feb 04 11:24:35 2010"
+  ModelVersionFormat	  "1.%<AutoIncrement:26>"
+  ConfigurationManager	  "None"
+  SimParamPage		  "Solver"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  ExtModeMexFile	  "ext_comm"
+  ExtModeBatchMode	  off
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  RTWExpressionDepthLimit 5
+  SimulationMode	  "normal"
+  Solver		  "ode45"
+  SolverMode		  "Auto"
+  StartTime		  "0.0"
+  StopTime		  "tsim"
+  MaxOrder		  5
+  MaxStep		  "auto"
+  MinStep		  "auto"
+  MaxNumMinSteps	  "-1"
+  InitialStep		  "auto"
+  FixedStep		  "auto"
+  RelTol		  "1e-5"
+  AbsTol		  "auto"
+  OutputOption		  "RefineOutputTimes"
+  OutputTimes		  "[]"
+  Refine		  "1"
+  LoadExternalInput	  off
+  ExternalInput		  "[t, u]"
+  LoadInitialState	  off
+  InitialState		  "xInitial"
+  SaveTime		  on
+  TimeSaveName		  "tout"
+  SaveState		  off
+  StateSaveName		  "xout"
+  SaveOutput		  on
+  OutputSaveName	  "yout"
+  SaveFinalState	  off
+  FinalStateName	  "xFinal"
+  SaveFormat		  "Array"
+  Decimation		  "1"
+  LimitDataPoints	  on
+  MaxDataPoints		  "1000"
+  SignalLoggingName	  "sigsOut"
+  ConsistencyChecking	  "none"
+  ArrayBoundsChecking	  "none"
+  AlgebraicLoopMsg	  "warning"
+  BlockPriorityViolationMsg "warning"
+  MinStepSizeMsg	  "warning"
+  InheritedTsInSrcMsg	  "warning"
+  DiscreteInheritContinuousMsg "warning"
+  MultiTaskRateTransMsg	  "error"
+  SingleTaskRateTransMsg  "none"
+  CheckForMatrixSingularity "none"
+  IntegerOverflowMsg	  "warning"
+  Int32ToFloatConvMsg	  "warning"
+  ParameterDowncastMsg	  "error"
+  ParameterOverflowMsg	  "error"
+  ParameterPrecisionLossMsg "warning"
+  UnderSpecifiedDataTypeMsg "none"
+  UnnecessaryDatatypeConvMsg "none"
+  VectorMatrixConversionMsg "none"
+  InvalidFcnCallConnMsg	  "error"
+  SignalLabelMismatchMsg  "none"
+  UnconnectedInputMsg	  "warning"
+  UnconnectedOutputMsg	  "warning"
+  UnconnectedLineMsg	  "warning"
+  SfunCompatibilityCheckMsg "none"
+  RTWInlineParameters	  off
+  BlockReductionOpt	  on
+  BooleanDataType	  on
+  ConditionallyExecuteInputs on
+  ParameterPooling	  on
+  OptimizeBlockIOStorage  on
+  ZeroCross		  on
+  AssertionControl	  "UseLocalSettings"
+  ProdHWDeviceType	  "Microprocessor"
+  ProdHWWordLengths	  "8,16,32,32"
+  RTWSystemTargetFile	  "grt.tlc"
+  RTWTemplateMakefile	  "grt_default_tmf"
+  RTWMakeCommand	  "make_rtw"
+  RTWGenerateCodeOnly	  off
+  RTWRetainRTWFile	  off
+  TLCProfiler		  off
+  TLCDebug		  off
+  TLCCoverage		  off
+  TLCAssertion		  off
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      ShowAdditionalParam     off
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "sfix(16)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ShowAdditionalParam     off
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "sfix(16)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "2^0"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      ShowAdditionalParam     off
+      LatchInput	      off
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      MATLABFcn
+      MATLABFcn		      "sin"
+      OutputDimensions	      "-1"
+      OutputSignalType	      "auto"
+      Output1D		      on
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Saturate
+      UpperLimit	      "0.5"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      Scope
+      Floating		      off
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      PortCounts	      "[]"
+      SFunctionModules	      "''"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      on
+      Permissions	      "ReadWrite"
+      RTWSystemCode	      "Auto"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      ShowAdditionalParam     off
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "sdslipxy"
+    Location		    [331, 299, 951, 657]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Demux
+      Name		      "Demux"
+      Ports		      [1, 4]
+      Position		      [445, 15, 450, 105]
+      BackgroundColor	      "black"
+      ShowName		      off
+      Outputs		      "[1 1 1 4]"
+    }
+    Block {
+      BlockType		      Demux
+      Name		      "Demux1"
+      Ports		      [1, 4]
+      Position		      [330, 98, 335, 197]
+      BackgroundColor	      "black"
+      ShowName		      off
+      Outputs		      "[7 4 4 4]"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Fxv"
+      Ports		      [1]
+      Position		      [415, 123, 435, 147]
+      Location		      [772, 62, 1019, 254]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      YMin		      "-25"
+      YMax		      "150"
+      SaveName		      "ScopeData5"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Int u v r om"
+      Ports		      [1, 1]
+      Position		      [360, 95, 390, 125]
+      NamePlacement	      "alternate"
+      InitialCondition	      "Vi"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux"
+      Ports		      [3, 1]
+      Position		      [215, 118, 220, 182]
+      ShowName		      off
+      Inputs		      "[7 1 1]"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Saturate
+      Name		      "Saturation"
+      Position		      [120, 139, 145, 161]
+      UpperLimit	      "0.49"
+      LowerLimit	      "-0.49"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "aa"
+      Ports		      [1]
+      Position		      [360, 173, 380, 197]
+      Location		      [527, 278, 774, 470]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      YMin		      "-0.05"
+      YMax		      "0.35"
+      SaveName		      "ScopeData9"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "dd"
+      Ports		      [1]
+      Position		      [215, 18, 235, 42]
+      Location		      [57, 295, 307, 489]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      YMin		      "-0.5"
+      YMax		      "0.5"
+      SaveName		      "ScopeData3"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "kinematics"
+      Ports		      [1, 1]
+      Position		      [505, 175, 545, 235]
+      DropShadow	      on
+      TreatAsAtomicUnit	      off
+      System {
+	Name			"kinematics"
+	Location		[132, 303, 636, 500]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  Position		  [25, 53, 55, 67]
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux2"
+	  Ports			  [1, 3]
+	  Position		  [355, 37, 360, 113]
+	  BackgroundColor	  "black"
+	  ShowName		  off
+	  Outputs		  "3"
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "Int x y psi"
+	  Ports			  [1, 1]
+	  Position		  [290, 60, 320, 90]
+	  InitialCondition	  "[xi yi psii]"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux1"
+	  Ports			  [2, 1]
+	  Position		  [160, 43, 165, 107]
+	  ShowName		  off
+	  Inputs		  "[3 1]"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "XY Graph"
+	  Ports			  [2]
+	  Position		  [400, 25, 430, 60]
+	  SourceBlock		  "simulink/Sinks/XY Graph"
+	  SourceType		  "XY scope."
+	  xmin			  "-50"
+	  xmax			  "160"
+	  ymin			  "-50"
+	  ymax			  "160"
+	  st			  "-1"
+	}
+	Block {
+	  BlockType		  MATLABFcn
+	  Name			  "kinematics"
+	  Position		  [195, 60, 255, 90]
+	  MATLABFcn		  "fcin"
+	  OutputDimensions	  "3"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "psi"
+	  Ports			  [1]
+	  Position		  [400, 103, 420, 127]
+	  Location		  [31, 274, 279, 467]
+	  Open			  off
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  YMin			  "-2"
+	  YMax			  "2"
+	  SaveName		  "ScopeData7"
+	  DataFormat		  "StructureWithTime"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "xuvr"
+	  Position		  [90, 45, 120, 75]
+	  Gain			  "eye(3,7)"
+	  Multiplication	  "Matrix(K*u)"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  Position		  [450, 152, 480, 168]
+	}
+	Line {
+	  SrcBlock		  "Mux1"
+	  SrcPort		  1
+	  DstBlock		  "kinematics"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "kinematics"
+	  SrcPort		  1
+	  DstBlock		  "Int x y psi"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Int x y psi"
+	  SrcPort		  1
+	  Points		  [0, 0; 5, 0]
+	  Branch {
+	    DstBlock		    "Demux2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 85]
+	    DstBlock		    "Out1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Demux2"
+	  SrcPort		  3
+	  Points		  [0, 0; 0, 10]
+	  Branch {
+	    Points		    [0, 5]
+	    DstBlock		    "psi"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 10; -220, 0]
+	    DstBlock		    "Mux1"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Demux2"
+	  SrcPort		  1
+	  DstBlock		  "XY Graph"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Demux2"
+	  SrcPort		  2
+	  Points		  [10, 0; 0, -40]
+	  DstBlock		  "XY Graph"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "xuvr"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "xuvr"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "lat guidance"
+      Ports		      [1, 1]
+      Position		      [225, 279, 300, 321]
+      Orientation	      "left"
+      DropShadow	      on
+      TreatAsAtomicUnit	      off
+      System {
+	Name			"lat guidance"
+	Location		[182, 338, 502, 452]
+	Open			on
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  Position		  [265, 33, 295, 47]
+	  Orientation		  "left"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Kg"
+	  Position		  [80, 25, 110, 55]
+	  Orientation		  "left"
+	  Gain			  "-[0 Kg]"
+	  Multiplication	  "Matrix(K*u)"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Xe=[0 ye psie]"
+	  Ports			  [1]
+	  Position		  [170, 63, 190, 87]
+	  Location		  [286, 274, 536, 467]
+	  Open			  off
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  YMin			  "-1"
+	  YMax			  "3.5"
+	  SaveName		  "ScopeData8"
+	  DataFormat		  "StructureWithTime"
+	}
+	Block {
+	  BlockType		  MATLABFcn
+	  Name			  "ftrack"
+	  Position		  [180, 25, 240, 55]
+	  Orientation		  "left"
+	  MATLABFcn		  "ftrack"
+	  OutputDimensions	  "3"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  Position		  [25, 33, 55, 47]
+	  Orientation		  "left"
+	}
+	Line {
+	  SrcBlock		  "ftrack"
+	  SrcPort		  1
+	  Points		  [0, 0; -45, 0]
+	  Branch {
+	    Points		    [15, 0; 0, 35]
+	    DstBlock		    "Xe=[0 ye psie]"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Kg"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Kg"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "ftrack"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "lon regulation"
+      Ports		      [1, 1]
+      Position		      [225, 208, 300, 252]
+      Orientation	      "left"
+      DropShadow	      on
+      TreatAsAtomicUnit	      off
+      System {
+	Name			"lon regulation"
+	Location		[434, 479, 894, 609]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  Position		  [405, 78, 435, 92]
+	  Orientation		  "left"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  Position		  [25, 25, 55, 55]
+	  ShowName		  off
+	  Value			  "T0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  Position		  [230, 100, 260, 120]
+	  ShowName		  off
+	  Value			  "u0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Ports			  [2, 1]
+	  Position		  [95, 30, 115, 50]
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  Ports			  [2, 1]
+	  Position		  [275, 75, 295, 95]
+	  Orientation		  "left"
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "k31"
+	  Position		  [170, 70, 200, 100]
+	  Orientation		  "left"
+	  Gain			  "k3(2,1)"
+	  Multiplication	  "Matrix(K*u)"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "xU"
+	  Position		  [340, 70, 370, 100]
+	  Orientation		  "left"
+	  Gain			  "eye(1,7)"
+	  Multiplication	  "Matrix(K*u)"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  Position		  [405, 33, 435, 47]
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "k31"
+	  SrcPort		  1
+	  Points		  [-60, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "k31"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "xU"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "xU"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "om's"
+      Ports		      [1]
+      Position		      [525, 93, 545, 117]
+      Location		      [294, 62, 541, 254]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      YMin		      "-25"
+      YMax		      "150"
+      SaveName		      "ScopeData4"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "r"
+      Ports		      [1]
+      Position		      [485, 58, 505, 82]
+      Location		      [296, 535, 543, 727]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      YMin		      "-2"
+      YMax		      "2"
+      SaveName		      "ScopeData1"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "sig"
+      Ports		      [1]
+      Position		      [385, 148, 405, 172]
+      Location		      [533, 63, 780, 255]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      YMin		      "-0.015"
+      YMax		      "0.05"
+      SaveName		      "ScopeData6"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      MATLABFcn
+      Name		      "slipping tyre dyn."
+      Position		      [245, 135, 305, 165]
+      MATLABFcn		      "fdslip"
+      OutputDimensions	      "3+4+3*4"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "u"
+      Ports		      [1]
+      Position		      [550, 18, 570, 42]
+      Location		      [56, 60, 304, 253]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      YMin		      "0"
+      YMax		      "50"
+      SaveName		      "ScopeData2"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "v"
+      Ports		      [1]
+      Position		      [515, 38, 535, 62]
+      Location		      [58, 533, 306, 726]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      YMin		      "-2"
+      YMax		      "2"
+      DataFormat	      "StructureWithTime"
+    }
+    Line {
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      DstBlock		      "slipping tyre dyn."
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "slipping tyre dyn."
+      SrcPort		      1
+      DstBlock		      "Demux1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Int u v r om"
+      SrcPort		      1
+      Points		      [0, 0]
+      Branch {
+	Points			[10, 0; 0, -50; -210, 0; 0, 70]
+	DstBlock		"Mux"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 0; 10, 0]
+	Branch {
+	  Points		  [0, -50]
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [55, 0; 0, 95]
+	  Branch {
+	    Points		    [0, 0]
+	    DstBlock		    "kinematics"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 25]
+	    DstBlock		    "lon regulation"
+	    DstPort		    1
+	  }
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      1
+      DstBlock		      "u"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      2
+      DstBlock		      "v"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Saturation"
+      SrcPort		      1
+      Points		      [0, 0; 25, 0]
+      Branch {
+	Points			[0, -120]
+	DstBlock		"dd"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"Mux"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      3
+      DstBlock		      "r"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      4
+      Points		      [20, 0; 0, 15]
+      DstBlock		      "om's"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "lat guidance"
+      SrcPort		      1
+      Points		      [-180, 0; 0, -150]
+      DstBlock		      "Saturation"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux1"
+      SrcPort		      1
+      DstBlock		      "Int u v r om"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux1"
+      SrcPort		      2
+      DstBlock		      "Fxv"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux1"
+      SrcPort		      3
+      DstBlock		      "sig"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "kinematics"
+      SrcPort		      1
+      Points		      [30, 0; 0, 95]
+      DstBlock		      "lat guidance"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "lon regulation"
+      SrcPort		      1
+      Points		      [-40, 0; 0, -60]
+      DstBlock		      "Mux"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Demux1"
+      SrcPort		      4
+      DstBlock		      "aa"
+      DstPort		      1
+    }
+  }
+}

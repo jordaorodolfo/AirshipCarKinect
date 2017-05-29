@@ -67,3 +67,11 @@ octave-workspace
 
 # Simulink autosave extension
 .autosave
+
+# ==================================================
+# Other files such as results in movies or PFDs
+# ==================================================
+
+*.avi
+
+*.pdf

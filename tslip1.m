@@ -5,7 +5,7 @@
 %091117: added longitudinal part for combined model
 %
 %--> setup script for sdslip/fdslip
-%091118: added 
+%091118: added
 % -kinematics in sdslipxy
 % -trim+linearization
 % -guidance control assuming no sliding in sdslipxy
@@ -17,7 +17,8 @@
 % -add slip/slide estimator ? added 091124
 
 % vehicle  parameters
-global acar b c d m Jr g mu deg cont
+global acar b c d m Jr g mu deg cont carMis imis dmis circ
+
 cont=1;
 
 %a=1.5;b=2;c=.9;d=.5;
@@ -32,7 +33,7 @@ Jr=1/2*m*1.5^2;
 g=9.81;deg=pi/180;
 % tyres model in fdslip as in ttyre2 < Milliken / Brian Beckman
 % (model parameters should be defined in setup script)
-mu=1.7/2;  %reduced friction coef. to lower unstability
+% mu=1.7/2;  %reduced friction coef. to lower unstability
 % mu=1.7/10;  %further reduced friction coef. to lower unstability
 mu=0.8;
 
@@ -68,12 +69,12 @@ xi=0;yi=0;psii=0;
 
 %--------- trim and linearize dynamics at selected speed u0
 % XU=[ u v r [om] dd T]
-u0=15; %limit of stability for mu=0.17 (reduced case)
+% u0=15; %limit of stability for mu=0.17 (reduced case)
 % u0=10;
 % u0=5; %reduced slip
-u0=3.5;   % u0=4.5 com mu=0.4
-        % u0=6.3 com mu=0.8 (SMC OK, mas PD NAO, LQR NAO)
-        % u0=1.5 com mu=0.05 (SMC OK, PD OK, LQR NAO, apenas com mu>0.1)
+u0=5;   % u0=4.5 com mu=0.4
+% u0=6.3 com mu=0.8 (SMC OK, mas PD NAO, LQR NAO)
+% u0=1.5 com mu=0.05 (SMC OK, PD OK, LQR NAO, apenas com mu>0.1)
 global uref
 uref=u0;
 %initialize trimming
@@ -99,8 +100,8 @@ for rep=1:5
 end
 disp 'final progress'
 dXdt0'
-if max(abs(dXdt0))>.001;
-    disp(sprintf('!!! did not succeed to reach trim condition for u=%gm/s',u0));
+if max(abs(dXdt0))>.001
+    fprintf('!!! did not succeed to reach trim condition for u=%gm/s\n',u0);
     disp '-------LEAVING------'
     return
 else
@@ -120,24 +121,24 @@ ff
 s7=ss(ff(1:7,1:7),ff(1:7,8:9),eye(7),zeros(7,2))
 s3=modred(s7,4:7)
 % @ 25m/s -----------------------------------
-% a = 
+% a =
 %                 x1           x2           x3
 %    x1     -0.07361  -2.226e-006  -8.498e-006
 %    x2   1.756e-020         -1.4          -25
 %    x3  -2.774e-017        -1.12       -3.672
-%  
-% b = 
+%
+% b =
 %                 u1           u2
 %    x1  -7.538e-005     0.003243
 %    x2        19.29  -3.338e-021
 %    x3        42.67   2.168e-019
 damp(s3)
-%  Eigenvalue      Damping     Freq. (rad/s)  
-%  -7.36e-002     1.00e+000      7.36e-002    
-%   2.88e+000    -1.00e+000      2.88e+000    
-%  -7.95e+000     1.00e+000      7.95e+000    
+%  Eigenvalue      Damping     Freq. (rad/s)
+%  -7.36e-002     1.00e+000      7.36e-002
+%   2.88e+000    -1.00e+000      2.88e+000
+%  -7.95e+000     1.00e+000      7.95e+000
 
- if 0
+if 0
     X=[];%ABM=[];k=1;
     for u=1:1:6
         v=0;r=0;dd=0*deg;
@@ -150,9 +151,9 @@ damp(s3)
     X
     % @ 25m/s -----------------------------------
     damp(AB(:,1:2))
-    %  Eigenvalue      Damping     Freq. (rad/s)  
-    %   2.85e+000    -1.00e+000      2.85e+000    
-    %  -7.99e+000     1.00e+000      7.99e+000    
+    %  Eigenvalue      Damping     Freq. (rad/s)
+    %   2.85e+000    -1.00e+000      2.85e+000
+    %  -7.99e+000     1.00e+000      7.99e+000
 end
 
 [a3,b3]=ssdata(s3);
@@ -181,7 +182,7 @@ switch usecase
         tsim=20;
         sdslip1r
         return
-    case showcle        
+    case showcle
         a2=a3(2:3,2:3);b2=b3(2:3,1);
         k2=lqrd(a2,b2,eye(2),1,Ts);
         c2=[0 1];
@@ -206,7 +207,7 @@ switch usecase
         % Y=[x yy lam]
         CX=[eye(1,6);0 0 1 0 0 0; 0 0 1 0 1 0];DX=zeros(3,2);
         Qn=1e-2*eye(3);Rn=1e-4*eye(3);
-%         Qn=1e-1*eye(3);Rn=1e-4*eye(3);
+        %         Qn=1e-1*eye(3);Rn=1e-4*eye(3);
         % remove y state
         AX(2,:)=[];BX(2,:)=[];GX(2,:)=[];AX(:,2)=[];CX(:,2)=[];
         Kest=kalman(ss(AX,[BX GX],CX,[DX zeros(3)]),Qn,Rn);
@@ -215,7 +216,8 @@ switch usecase
         tstepdd=5; tstepdd1=15; dstepdd=.1*deg;
         R=50;dstepr=u0/R;
         tsim=20;
-        gointeractive=0;if gointeractive
+        gointeractive=0;
+        if gointeractive
             sdslip1re
             return
         else
@@ -240,7 +242,8 @@ switch usecase
             % plot xy plus yaw
             Vpts=[a -c;a c;-b c;-b -c;a -c];
             figure(10),clf,plot(xy(:,2),xy(:,1)),hold on
-            ddt=10;for kk=1:ddt:length(tout)
+            ddt=10;
+            for kk=1:ddt:length(tout)
                 R=[cos(yy(kk)) sin(yy(kk));-sin(yy(kk)) cos(yy(kk))];
                 ptsk=5*Vpts*R;ptsk(:,1)=ptsk(:,1)+xy(kk,1);ptsk(:,2)=ptsk(:,2)+xy(kk,2);
                 plot(ptsk(:,2),ptsk(:,1),'g')
@@ -257,7 +260,8 @@ switch usecase
         sdslip
         %         return
         % plot curvature gain: 1/R/dd vs time
-        fig=1;for u0=[2 5 8 11 14 17 20]
+        fig=1;
+        for u0=[2 5 8 11 14 17 20]
             T0=44*(u0/10)^2;Vi(1)=u0;
             sim('sdslip1');
             figure(fig),fig=fig+1;plot(yout(:,1),yout(:,4)./yout(:,2)/dstepdd)
@@ -286,65 +290,65 @@ switch usecase
         Bg2=[mu_0/1 ; acar*mu_0/1];
         
         Ag1=[  -20.59          -4;
-                -10.8      -7.686];
-            
-        Bg1=[38; 43.6];    
+            -10.8      -7.686];
+        
+        Bg1=[38; 43.6];
         Kgcar=lqr(Ag1,Bg1,[10 0;0 10],10);
-        
-        global mis imis dmis circ
-        
-        test45deg=0;if test45deg
+             
+        test45deg=0;
+        if test45deg
             % straight segments
             circ=0;
-            mis=[0 0;100 0;140 50;140 100;100 140;0 140;0 0];
+            carMis=[0 0;100 0;140 50;140 100;100 140;0 140;0 0];
             tsim=250/u;
         else
             % circle segments with smooth path
             circ=1;
-            %mis=[0 0;100 0;100 100;0 100;0 0];
+            %carMis=[0 0;100 0;100 100;0 100;0 0];
             
-%             raio=15;
-%             dmis=raio/5;
-            mis=[0 0 0;
-                10 0 pi/2;
-                15 5 pi/2;
-                10 10 0;
-                0 10 pi/2;
-                -5 5 pi/2;
-                0  0   0];
+            %             raio=15;
+            %             dmis=raio/5;
+            carMis=[0  0   0;
+                100 0   pi/2;
+                150 50  pi/2;
+                100 100 0;
+                0   100 pi/2;
+                -50 50  pi/2;
+                0   0   0];
             
-           % tsim=(50*1.2*pi+2*100)/u;
-           % tsim=3*2*(raio*1.2*pi+2*2*raio)/u;
-           
+            % tsim=(50*1.2*pi+2*100)/u;
+            % tsim=3*2*(raio*1.2*pi+2*2*raio)/u;
+            
         end
         imis=1;%dmis=10;
-        gointeractive=1;if gointeractive
-            sdslip1xy
-            return
-        else
-            y1=sim('sdslip1xy');
-            ny=size(yout,2);tout=yout(:,1);nt=length(tout);
-            xy=yout(:,ny-3+(1:2));
-            yy=yout(:,end); % model yaw angle
-            % plot xy plus yaw
-            Vpts=[a -c;a c;-b c;-b -c;a -c];
-            figure(10),clf,plot(xy(:,2),xy(:,1)),hold on
-            ddt=10;
-            for kk=1:ddt:length(tout)
-                R=[cos(yy(kk)) sin(yy(kk));-sin(yy(kk)) cos(yy(kk))];
-                ptsk=5*0.2*Vpts*R;
-                
-                ptsk=[0 0; 1 0];
-                ptsk=ptsk*R;
-                
-                ptsk(:,1)=ptsk(:,1)+xy(kk,1);
-                ptsk(:,2)=ptsk(:,2)+xy(kk,2);
-                
-                plot(ptsk(:,2),ptsk(:,1),'r')
-                
-                plot(ptsk(:,2),ptsk(:,1),'r')
-            end
-            hold off
-            return
-        end
+        gointeractive=1;
+%         if gointeractive
+%             sdslip1xy
+%             return
+%         else
+%             y1=sim('sdslip1xy');
+%             ny=size(yout,2);tout=yout(:,1);nt=length(tout);
+%             xy=yout(:,ny-3+(1:2));
+%             yy=yout(:,end); % model yaw angle
+%             % plot xy plus yaw
+%             Vpts=[a -c;a c;-b c;-b -c;a -c];
+%             figure(10),clf,plot(xy(:,2),xy(:,1)),hold on
+%             ddt=10;
+%             for kk=1:ddt:length(tout)
+%                 R=[cos(yy(kk)) sin(yy(kk));-sin(yy(kk)) cos(yy(kk))];
+%                 ptsk=5*0.2*Vpts*R;
+%                 
+%                 ptsk=[0 0; 1 0];
+%                 ptsk=ptsk*R;
+%                 
+%                 ptsk(:,1)=ptsk(:,1)+xy(kk,1);
+%                 ptsk(:,2)=ptsk(:,2)+xy(kk,2);
+%                 
+%                 plot(ptsk(:,2),ptsk(:,1),'r')
+%                 
+%                 plot(ptsk(:,2),ptsk(:,1),'r')
+%             end
+%             hold off
+%             return
+%         end
 end

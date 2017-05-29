@@ -17,10 +17,10 @@ function [Xge]=ftrack3(inp)
     %-- Pr0: Previous tracked position
     %-- t0: Previous sampled time
     %-- uref: reference speed (need to be defined in main program)
-    %-- mis: Mission matrix (np x 3) with np points (xy position) and arc travelled (0 if straight line)
+    %-- carMis: Mission matrix (np x 3) with np points (xy position) and arc travelled (0 if straight line)
     %-- imis: actual mission point index
     %
-    global Pr0 t0 uref mis imis
+    global Pr0 t0 uref carMis imis
     
     % Initialize the function
     P=zeros(2,1);
@@ -29,15 +29,15 @@ function [Xge]=ftrack3(inp)
     t=inp(4);                              %actual sample time
     if t==0                                %First iteration
         t0=0;
-        Pr0=mis(1,1:2)';
+        Pr0=carMis(1,1:2)';
         imis=1;
     end
     ds=uref*(t-t0);                         %Distance travelled by the reference vehicle
     ext=[0 -1;1 0];                         %90deg rotation matrix for cross product
-    A=mis(imis,1:2)'; B=mis(imis+1,1:2)';   %Start and finish of the mission segment
+    A=carMis(imis,1:2)'; B=carMis(imis+1,1:2)';   %Start and finish of the mission segment
     ab=B-A; dab=sqrt(ab'*ab);               %straight segment length
     pb=B-P; dpb=sqrt(pb'*pb);               %distance to finish point (B)
-    ttab=mis(imis,3);                       %angular variation of the track (0 if straight line)
+    ttab=carMis(imis,3);                       %angular variation of the track (0 if straight line)
     %Verifying if the reference is still in the previous track segment
 %     Pr0, ab, ds, imis, dab, ttab, pause
     if (ttab==0)                            %straight segment case
@@ -57,16 +57,16 @@ function [Xge]=ftrack3(inp)
       cb=abs(ttab)-abs(atan2(-CA'*ext*CPr,CA'*CPr));%difference between arcs
     end
     if (cb<0);                              %then segment is over, next one
-      [np,mp]=size(mis);
+      [np,mp]=size(carMis);
       if imis == np-1
         imis=1;                             %for end of mission, last point is first
       else                                  %else switch to next segment
         imis=imis+1;
       end;
-        A=mis(imis,1:2)';   B=mis(imis+1,1:2)';
+        A=carMis(imis,1:2)';   B=carMis(imis+1,1:2)';
         ab=B-A; dab=sqrt(ab'*ab);
         pb=B-P; dpb=sqrt(pb'*pb);
-        ttab=mis(imis,3); 
+        ttab=carMis(imis,3); 
       
       ds1=dbPr;                             %part of the distance travelled in the actual track segment
       if (ttab==0)                          %straight segment case
